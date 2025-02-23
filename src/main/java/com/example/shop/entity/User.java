@@ -2,13 +2,16 @@ package com.example.shop.entity;
 
 import com.example.shop.constant.GenderEnum;
 import com.example.shop.constant.RoleEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "AppUser")
@@ -34,12 +37,18 @@ public class User {
     @Column(name = "birthday")
     private Date birthday;
 
-    @Enumerated(EnumType.STRING)
+//    @Enumerated(EnumType.STRING)
     @Column(name = "gender")
     private GenderEnum gender;
 
     @Enumerated(EnumType.STRING)
     private RoleEnum role;
 
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Order> orders;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<FeedBack> feedBacks = new ArrayList<>();
 }

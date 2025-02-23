@@ -2,7 +2,13 @@ package com.example.shop.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class LoginDto {
     @NotBlank(message = "Email must not be blank")
     @JsonProperty("email")
@@ -11,29 +17,5 @@ public class LoginDto {
     @NotBlank(message = "Password must not be blank")
     private String password;
 
-    public LoginDto() {
-    }
 
-    ;
-
-    public LoginDto(String usernameOrEmail, String password) {
-        this.usernameOrEmail = usernameOrEmail;
-        this.password = password;
-    }
-
-    public String getUsernameOrEmail() {
-        return usernameOrEmail;
-    }
-
-    public void setUsernameOrEmail(String usernameOrEmail) {
-        this.usernameOrEmail = usernameOrEmail;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

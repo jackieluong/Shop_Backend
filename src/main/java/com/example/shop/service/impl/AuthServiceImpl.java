@@ -9,6 +9,7 @@ import com.example.shop.repository.UserRepository;
 import com.example.shop.security.JwtTokenProvider;
 import com.example.shop.service.AuthService;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -23,6 +24,16 @@ public class AuthServiceImpl implements AuthService {
     private ModelMapper modelMapper;
     private PasswordEncoder passwordEncoder;
     private JwtTokenProvider jwtTokenProvider;
+
+    @Autowired
+    public AuthServiceImpl(UserRepository userRepository, AuthenticationManager authenticationManager, ModelMapper modelMapper, PasswordEncoder passwordEncoder, JwtTokenProvider jwtTokenProvider) {
+        this.userRepository = userRepository;
+        this.authenticationManager = authenticationManager;
+        this.modelMapper = modelMapper;
+        this.passwordEncoder = passwordEncoder;
+        this.jwtTokenProvider = jwtTokenProvider;
+    }
+
     @Override
     public String login(LoginDto loginDto, User user) {
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
@@ -52,7 +63,7 @@ public class AuthServiceImpl implements AuthService {
         user.setBirthday(registerDto.getBirthday());
         user.setGender(registerDto.getGender());
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
-        user.setRole(RoleEnum.valueOf(registerDto.getRole()));
+        user.setRole(registerDto.getRole());
 
 
 //        Role userRole = roleRepository.findByName("USER").get();

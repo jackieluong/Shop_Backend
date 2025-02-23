@@ -66,7 +66,8 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<ResponseDto> register(@RequestBody RegisterDto registerDto) {
+    public ResponseEntity<ResponseDto> register(@Valid @RequestBody RegisterDto registerDto) {
+        System.out.println("RegisterDto: " + registerDto);
         UserDto response = authService.register(registerDto);
 
         ResponseDto responseDto = new ResponseDto.Builder()

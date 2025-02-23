@@ -1,6 +1,7 @@
 package com.example.shop.dto;
 
 import com.example.shop.constant.GenderEnum;
+import com.example.shop.constant.RoleEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +24,7 @@ public class UserDto {
 
     private Date birthday;
 
-    private String role;
+    private RoleEnum role;
 
 
 

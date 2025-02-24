@@ -16,7 +16,7 @@ import com.example.shop.service.ProductService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1/products")
+@RequestMapping("/api/v1/product")
 public class ProductController {
     
     private ProductService productService;
@@ -38,7 +38,7 @@ public class ProductController {
                 .build();
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
     }
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<ResponseDto> createProduct(@Valid @RequestBody ProductRequest productRequest) {
         Product newProduct = productService.createProduct(productRequest);
 
@@ -50,7 +50,7 @@ public class ProductController {
         return new ResponseEntity<>(responseDto, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/edit/{id}")
     public ResponseEntity<ResponseDto> updateProduct(@Valid @RequestBody ProductRequest productRequest, @PathVariable(name = "id") Long id) {
 
         Product updatedProduct = productService.updateProduct(productRequest, id);
@@ -64,7 +64,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ResponseDto> getProduct( @PathVariable(name = "id") Long id) {
+    public ResponseEntity<ResponseDto> getProductById( @PathVariable(name = "id") Long id) {
 
         ProductDetailsResponse product = productService.getProductWithId(id);
 
@@ -75,5 +75,7 @@ public class ProductController {
                 .build();
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
     }
+
+
 }
 

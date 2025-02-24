@@ -51,4 +51,8 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private List<FeedBack> feedBacks = new ArrayList<>();
+
+    @OneToOne(mappedBy = "user", fetch = FetchType.EAGER)
+    @JsonIgnore
+    private Cart cart;
 }

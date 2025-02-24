@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -28,7 +27,7 @@ public class OrderRequest {
     private double shipFee;
 
     @Size(min = 1, message = "Order must have at least 1 product")
-    private List<CartItemDto> products;
+    private List<OrderCartItem> products;
 
     private OrderStatusEnum orderStatus;
 

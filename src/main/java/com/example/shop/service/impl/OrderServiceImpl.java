@@ -120,7 +120,7 @@ public class OrderServiceImpl implements OrderService {
 
 
         OrderDetailResponse.UserResponse userResponse = new OrderDetailResponse.UserResponse(
-                order.getUser().getId(),
+                (int) order.getUser().getId(),
                 order.getUser().getName(),
                 order.getUser().getEmail()
         );

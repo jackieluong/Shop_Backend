@@ -1,6 +1,5 @@
 package com.example.shop.service.impl;
 
-import com.example.shop.constant.RoleEnum;
 import com.example.shop.dto.LoginDto;
 import com.example.shop.dto.RegisterDto;
 import com.example.shop.dto.UserDto;

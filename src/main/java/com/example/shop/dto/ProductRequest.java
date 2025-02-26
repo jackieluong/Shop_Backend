@@ -1,6 +1,6 @@
 package com.example.shop.dto;
 
-import com.example.shop.constant.CategoryEnum;
+import com.example.shop.enums.CategoryEnum;
 
 
 import jakarta.validation.constraints.Min;

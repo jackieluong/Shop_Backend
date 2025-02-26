@@ -1,8 +1,6 @@
 package com.example.shop.dto;
 
-import com.example.shop.constant.CategoryEnum;
-import com.example.shop.entity.CartProduct;
-import com.example.shop.entity.FeedBack;
+import com.example.shop.enums.CategoryEnum;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

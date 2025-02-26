@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.example.shop.dto.FeedBackDto;
+import com.example.shop.dto.ProductDto;
 import com.example.shop.entity.FeedBack;
 import com.example.shop.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
@@ -43,6 +44,15 @@ public class ProductServiceImpl implements ProductService{
     public Product deleteProduct(Long id) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public List<ProductDto> searchProduct(String keyword) {
+
+        List<Product> products = productRepository.searchByKeyword(keyword);
+
+        return products.stream().map(product -> mapper.map(product, ProductDto.class))
+                .collect(Collectors.toList());
     }
 
     @Override

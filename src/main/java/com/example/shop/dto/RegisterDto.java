@@ -1,7 +1,7 @@
 package com.example.shop.dto;
 
-import com.example.shop.constant.GenderEnum;
-import com.example.shop.constant.RoleEnum;
+import com.example.shop.enums.GenderEnum;
+import com.example.shop.enums.RoleEnum;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;

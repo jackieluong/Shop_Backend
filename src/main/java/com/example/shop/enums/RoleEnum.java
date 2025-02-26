@@ -1,4 +1,4 @@
-package com.example.shop.constant;
+package com.example.shop.enums;
 
 public enum RoleEnum {
     CUSTOMER, MANAGER

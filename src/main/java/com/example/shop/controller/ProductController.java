@@ -3,6 +3,7 @@ package com.example.shop.controller;
 import java.util.List;
 
 import com.example.shop.dto.ProductDetailsResponse;
+import com.example.shop.dto.ProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -72,6 +73,20 @@ public class ProductController {
                 .setStatus(HttpStatus.OK)
                 .setMessage("Get product successfully")
                 .setData(product)
+                .build();
+        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<ResponseDto> searchProduct(@RequestParam(value = "current", defaultValue = "1") int current,
+                                                      @RequestParam(value = "pageSize", defaultValue = "5") int pageSize,
+                                                     @RequestParam String keyword) {
+        keyword = keyword.trim();
+        List<ProductDto> productDtos = productService.searchProduct(keyword);
+        ResponseDto responseDto = new ResponseDto.Builder()
+                .setStatus(HttpStatus.OK)
+                .setMessage("Search product successfully")
+                .setData(productDtos)
                 .build();
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
     }

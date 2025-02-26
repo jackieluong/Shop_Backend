@@ -1,6 +1,6 @@
 package com.example.shop.entity;
 
-import com.example.shop.constant.CategoryEnum;
+import com.example.shop.enums.CategoryEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;

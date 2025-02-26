@@ -1,8 +1,8 @@
 package com.example.shop.entity;
 
-import com.example.shop.constant.CategoryEnum;
-import com.example.shop.constant.OrderStatusEnum;
-import com.example.shop.constant.PaymentStatusEnum;
+import com.example.shop.enums.OrderStatusEnum;
+import com.example.shop.enums.PaymentMethodEnum;
+import com.example.shop.enums.PaymentStatusEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;

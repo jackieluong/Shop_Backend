@@ -1,7 +1,8 @@
 package com.example.shop.dto;
 
-import com.example.shop.constant.OrderStatusEnum;
-import com.example.shop.constant.PaymentStatusEnum;
+import com.example.shop.enums.OrderStatusEnum;
+import com.example.shop.enums.PaymentMethodEnum;
+import com.example.shop.enums.PaymentStatusEnum;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

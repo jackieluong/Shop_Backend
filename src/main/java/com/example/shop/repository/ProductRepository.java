@@ -7,6 +7,7 @@ import com.example.shop.entity.Product;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ProductRepository extends JpaRepository<Product, Long>{
@@ -24,4 +25,10 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 
 //    @EntityGraph(attributePaths = {"feedBacks.user"})
 //    Optional<Product> findById(Long id);
+
+    @Query("SELECT p FROM Product p WHERE " +
+            "LOWER(p.name) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(p.brand) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(p.category) LIKE LOWER(CONCAT('%', :keyword, '%'))")
+    List<Product> searchByKeyword(@Param("keyword") String keyword);
 }

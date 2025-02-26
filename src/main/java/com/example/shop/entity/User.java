@@ -1,7 +1,7 @@
 package com.example.shop.entity;
 
-import com.example.shop.constant.GenderEnum;
-import com.example.shop.constant.RoleEnum;
+import com.example.shop.enums.GenderEnum;
+import com.example.shop.enums.RoleEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

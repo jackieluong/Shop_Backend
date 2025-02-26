@@ -1,10 +1,9 @@
 package com.example.shop.service.impl;
 
-import com.example.shop.constant.OrderStatusEnum;
-import com.example.shop.constant.PaymentStatusEnum;
+import com.example.shop.enums.OrderStatusEnum;
+import com.example.shop.enums.PaymentStatusEnum;
 import com.example.shop.dto.OrderDetailResponse;
 import com.example.shop.dto.OrderRequest;
-import com.example.shop.dto.ProductDto;
 import com.example.shop.dto.UserOrderResponse;
 import com.example.shop.entity.*;
 import com.example.shop.exception.ResourceNotFoundException;
